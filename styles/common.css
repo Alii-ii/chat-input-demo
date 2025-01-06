@@ -1,0 +1,108 @@
+/* 颜色变量 */
+:root {
+    /* 背景色 */
+    --bg-primary: #1E1F22;
+    --bg-secondary: #2B2D30;
+    
+    /* 边框颜色 */
+    --border-default: #4E5157;
+    --border-hover: #6F737A;
+    --border-dropdown: #393B40;
+    
+    /* 文字颜色 */
+    --text-primary: #DFE1E6;
+    --text-secondary: #BDC0C9;
+    --text-tertiary: #6E798A;
+    --text-quaternary: #5A5D63;
+    
+    /* 交互颜色 */
+    --interactive-primary: #3574F0;
+    --interactive-secondary: rgba(53, 116, 240, 0.1);
+    
+    /* 尺寸变量 */
+    --spacing-2: 2px;  /* xxs */
+    --spacing-4: 4px;  /* xs */
+    --spacing-6: 6px;  /* sm */
+    --spacing-8: 8px;  /* md */
+    --spacing-12: 12px;  /* lg */
+    --spacing-16: 16px;  /* xl */
+    
+    /* 字体大小 */
+    --font-10: 10px;  /* xxs */
+    --font-12: 12px;  /* xs */
+    --font-13: 13px;  /* sm */
+    --font-14: 14px;  /* md */
+    
+    /* 行高 */
+    --leading-16: 16px;  /* sm */
+    --leading-18: 18px;  /* md */
+    
+    /* 圆角 */
+    --radius-2: 2px;  /* sm */
+    --radius-4: 4px;  /* md */
+    --radius-6: 6px;  /* lg */
+    
+    /* 固定尺寸 */
+    --height-32: 32px;  /* input height */
+    --height-28: 28px;  /* option height */
+    --width-160: 160px;  /* dropdown width */
+    --width-45: 45px;   /* option text width */
+    --width-48: 48px;   /* option shortcut width */
+    --height-200: 200px;  /* max dropdown height */
+    
+    /* 阴影 */
+    --shadow-dropdown: 0 4px 16px rgba(53, 116, 240, 0.2);
+}
+
+/* 通用字体样式 */
+.text-inter {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+}
+
+.text-pingfang {
+    font-family: 'PingFang SC', sans-serif;
+    font-style: normal;
+}
+
+.text-mono {
+    font-family: "SF Mono", SFMono-Regular, ui-monospace, monospace;
+}
+
+/* 通用布局类 */
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 通用滚动条样式 */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 2px;
+}
+
+/* 滚动条轨道 */
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* 滚动条滑块 */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--border-dropdown);
+    border-radius: 2px;
+}
+
+/* 通用动画 */
+@keyframes gradient {
+    0% {
+        background-position: 0 0, 0 0;
+    }
+    100% {
+        background-position: 0 0, -200% 0;
+    }
+} 

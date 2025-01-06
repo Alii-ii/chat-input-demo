@@ -1,0 +1,152 @@
+/* 模型选择器按钮 */
+.model-button {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: 0;
+    height: fit-content;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.model-name {
+    composes: text-inter;
+    font-weight: 400;
+    font-size: var(--font-12);
+    line-height: var(--leading-16);
+    color: var(--text-tertiary);
+    white-space: nowrap;
+}
+
+.model-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-tertiary);
+    width: fit-content;
+}
+
+/* 鼠标悬停效果 */
+.model-button:hover {
+    border-radius: var(--radius-4);
+}
+
+/* 模型选择器容器 */
+.model-selector {
+    position: relative;
+    padding: var(--spacing-4);
+    user-select: none;
+}
+
+/* 下拉菜单 */
+.model-dropdown {
+    box-sizing: border-box;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    width: var(--width-160);
+    background: var(--bg-primary);
+    border: 0.5px solid var(--border-dropdown);
+    border-radius: var(--radius-4);
+    z-index: 2;
+    max-height: var(--height-200);
+    overflow-y: auto;
+}
+
+.model-dropdown.custom-scrollbar {
+    composes: custom-scrollbar;
+    padding-top: var(--spacing-4);
+}
+
+/* 选项样式 */
+.model-option {
+    composes: flex-center;
+    padding: var(--spacing-4) var(--spacing-8);
+    gap: var(--spacing-4);
+    width: var(--width-160);
+    height: var(--height-28);
+    flex: none;
+    align-self: stretch;
+    user-select: none;
+}
+
+.model-option .icon {
+    display: none;
+    width: var(--spacing-16);
+    height: var(--spacing-16);
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.model-option .text {
+    width: var(--width-45);
+    height: var(--leading-16);
+    composes: text-inter;
+    font-weight: 500;
+    font-size: var(--font-12);
+    line-height: var(--leading-16);
+    color: var(--text-secondary);
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.model-option .shortcut {
+    width: var(--width-48);
+    height: var(--leading-18);
+    composes: text-pingfang;
+    font-weight: 400;
+    font-size: var(--font-12);
+    line-height: var(--leading-18);
+    text-align: right;
+    color: var(--text-quaternary);
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.model-option .icon-end {
+    display: none;
+    width: var(--spacing-16);
+    height: var(--spacing-16);
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+}
+
+.model-option:hover {
+    background: var(--bg-secondary);
+}
+
+.option-name {
+    composes: text-inter;
+    font-weight: 500;
+    font-size: var(--font-13);
+    line-height: var(--leading-16);
+    color: var(--text-primary);
+    width: fit-content;
+    height: fit-content;
+}
+
+.option-shortcut {
+    composes: text-pingfang;
+    margin-left: auto;
+    font-weight: 400;
+    font-size: var(--font-12);
+    line-height: var(--leading-18);
+    text-align: right;
+    color: var(--text-quaternary);
+    user-select: none;
+}
+
+/* 模型选择器和快捷键提示的容器 */
+.model-selector-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+} 

@@ -1,0 +1,206 @@
+/* style.css */
+html, body {
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 100vh; /* 设置高度为视口高度 */
+    margin: 0; /* 去除默认边距 */
+    background-color: var(--bg-primary); /* 设置背景颜色 */
+}
+
+/* 页面容器 */
+.page-container {
+    display: flex; /* 使用flex布局 */
+    flex-direction: column; /* 设置纵向排列 */
+    align-items: center; /* 水平居中对齐 */
+    gap: 0px; /* 设置元素间距 */
+    height: fit-content; /* 设置高度为 hug */
+    width: fit-content; /* 设置宽度为 hug */
+}
+
+/* 输入框 */
+
+.input-container {
+    position: relative;
+    width: 400px;
+    min-height: var(--height-32);
+    max-height: var(--height-600);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end; 
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-6);
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+/* 输入框悬停状态 */
+.input-container:hover {
+    border: 1px solid var(--border-hover); /* 悬停时边框颜色 */
+}
+
+/* 输入框聚焦状态 */
+.input-container:focus-within {
+    border: none;
+    outline: none;
+    border-radius: var(--radius-6);
+    box-shadow: var(--shadow-dropdown);
+    /* 添加渐变色边框 */
+    border: 1px solid transparent;
+    background-image: linear-gradient(var(--bg-secondary), var(--bg-secondary)), /* 背景色 */
+                     linear-gradient(90deg, 
+                         var(--interactive-primary),  /* #3574F0 with 80% opacity */
+                         var(--interactive-secondary),   /* #51C0CF with 80% opacity */
+                         var(--interactive-primary)   /* 回到起始颜色，形成循环 */
+                     );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    animation: gradient 2s linear infinite; /* 渐变动画 */
+    background-size: 100% 100%, 200% 100%; /* 第二个渐变宽度设为200%，为动画预留空间 */
+}
+
+/* 输入文本框 */
+.styled-input {
+    flex: 1;
+    width: auto;
+    min-height: var(--height-32);
+    max-height: var(--height-600);
+    padding: var(--spacing-6);
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    caret-color: var(--interactive-primary);
+    resize: none;
+    font-size: var(--font-12);
+    line-height: var(--leading-18);
+    outline: none;
+    overflow-y: hidden;  /* 保持隐藏，由 JS 控制显示 */
+    box-sizing: border-box;
+    display: block;
+    /* transition: height 25ms ease; 会导致输入框不能自动恢复高度 */
+    &::placeholder {
+        user-select: none;
+    }
+}
+
+/* 调整大小手柄 */
+.resize-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: ns-resize;
+    width: 12px;
+    height: 12px;
+    opacity: 0.1;
+    transition: opacity 0.2s ease, background-color 0.2s ease, transform 0s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 1;
+}
+
+/* 调整大小手柄悬停状态 */
+.resize-handle:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* SVG 图标样式 */
+.resize-handle svg {
+    width: 12px;button-container
+    height: 12px;
+    display: block;  /* 确保 SVG 正确显示 */
+}
+
+/* 发送按钮 */
+.send-button {
+    height: var(--height-32);
+    display: inline-flex;
+    align-items: center;
+    padding: 0 var(--spacing-2);
+    border: none;
+    background: none;
+    color: var(--text-secondary);
+    font-size: var(--font-14);
+    gap: var(--spacing-4);
+    cursor: pointer;
+    white-space: nowrap;
+    text-align: center;
+    transition: color 0.2s ease, opacity 0.1s ease;  /* 分别控制颜色和透明度的过渡 */
+    user-select: none;
+}
+
+/* 发送按钮悬停状态 */
+.send-button:hover {
+    color: var(--text-primary);
+}
+
+/* 发送按钮按下状态 */
+.send-button:active,
+.send-button.active {
+    opacity: 0.5;
+}
+
+/* 返回符号 */
+.return-symbol {
+    font-family: "SF Mono", SFMono-Regular, ui-monospace, monospace;
+    color: var(--text-tertiary);
+    user-select: none;
+    font-size: var(--font-12);
+    transition: inherit;  /* 继承父元素的过渡效果 */
+}
+
+/* 按钮容器 */
+.button-container {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    gap: var(--spacing-2);
+    padding: 0 var(--spacing-4) 0 0;
+    flex-shrink: 0;  /* 防止按钮被压缩 */
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+/* 渐变动画 */
+@keyframes gradient {
+    0% {
+        background-position: 0 0, 0 0;
+    }
+    100% {
+        background-position: 0 0, -200% 0; /* 向左移动一个完整周期 */
+    }
+}
+
+/* 快捷键提示文本 */
+.shortcut-hint {
+    width: fit-content;
+    height: var(--leading-18);
+    padding: 0;
+    composes: text-pingfang;
+    font-weight: 400;
+    font-size: var(--font-10);
+    line-height: var(--leading-18);
+    text-align: right;
+    color: var(--text-quaternary);
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    user-select: none;
+}
+
+/* 顶部拖拽触点 */
+.resize-handle-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;  /* 与边框重合 */
+    cursor: ns-resize;
+    z-index: 1;
+}
