@@ -1,0 +1,93 @@
+<!DOCTYPE html> <!-- 声明文档类型为HTML5 -->
+<html lang="en"> <!-- 设置文档语言为英语 -->
+<head>
+    <meta charset="UTF-8"> <!-- 设置字符编码为UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口以适应设备宽度 -->
+    <title>Document</title> <!-- 文档标题 -->
+    <link rel="stylesheet" href="./styles/common.css">
+    <link rel="stylesheet" href="./styles/style.css"> 
+    <link rel="stylesheet" href="./styles/model-selector.css">
+</head>
+<body>
+    <div class="page-container"> 
+        
+        <!-- 输入框 -->
+        <div class="input-container"> 
+            <!-- 输入文本框 -->
+            <textarea class="styled-input" placeholder="↑↓ 切换历史prompts..."></textarea> 
+            
+            <!-- 顶部拖拽触点 -->
+            <div class="resize-handle-top"></div>
+            
+            <!-- 按钮容器 -->
+            <div class="button-container">
+
+                <!-- Codebase按钮 -->
+                <button class="send-button">
+                    Codebase
+                    <span class="return-symbol">⌘⏎</span>
+                </button>
+                
+                <!-- Chat按钮 -->
+                <button class="send-button">
+                    Chat
+                    <span class="return-symbol">⏎</span>
+                </button>
+
+            </div>
+
+            <!-- 调整宽度拖动条 -->
+            <div class="resize-handle">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.71299 2.76852L2.76741 7.71411C2.59167 7.88984 2.59167 8.17477 2.76741 8.3505C2.94314 8.52624 3.22807 8.52624 3.4038 8.3505L8.34939 3.40492C8.52512 3.22918 8.52512 2.94426 8.34939 2.76852C8.17365 2.59278 7.88873 2.59278 7.71299 2.76852Z" fill="#C9CCD6"/>
+                    <path d="M4.60459 2.1318L2.1318 4.60459C1.95607 4.78033 1.95607 5.06525 2.1318 5.24099C2.30754 5.41673 2.59246 5.41673 2.7682 5.24099L5.24099 2.7682C5.41673 2.59246 5.41673 2.30754 5.24099 2.1318C5.06525 1.95607 4.78033 1.95607 4.60459 2.1318Z" fill="#C9CCD6"/>
+                </svg>
+            </div>
+        </div>
+        
+        
+        <div class="model-selector-container">
+            <!-- 左侧模型选择器 -->
+            <div class="model-selector">
+                <button class="model-button">
+                    <span class="model-name">Claude-3.5</span>
+                    <span class="model-icon">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.00221 8.47708L7.47708 6.00221C7.62353 5.85576 7.62353 5.61831 7.47708 5.47186L5.00221 2.99701C4.85576 2.85056 4.61831 2.85056 4.47186 2.99701C4.32544 3.14344 4.32544 3.38089 4.47186 3.52734L6.68158 5.73704L4.47186 7.94675C4.32544 8.0932 4.32544 8.33063 4.47186 8.47708C4.61831 8.62353 4.85576 8.62353 5.00221 8.47708Z" fill="#6C707E"/>
+                        </svg>
+                    </span>
+                </button>
+                
+                <!-- 下拉菜单 -->
+                <div class="model-dropdown">
+                    <div class="model-option">
+                        <span class="option-name">Claude-3.5</span>
+                        <span class="option-shortcut">⌘1</span>
+                    </div>
+                    <div class="model-option">
+                        <span class="option-name">GPT-4</span>
+                        <span class="option-shortcut">⌘2</span>
+                    </div>
+                    <div class="model-option">
+                        <span class="option-name">Claude-3</span>
+                    </div>
+                    <div class="model-option">
+                        <span class="option-name">Claude-2</span>
+                    </div>
+                    <div class="model-option">
+                        <span class="option-name">Claude-instant</span>
+                    </div>
+                    <div class="model-option">
+                        <span class="option-name">GPT-3.5</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧快捷键提示 -->
+            <span class="shortcut-hint">@ 引用 &nbsp; / 指令 &nbsp; </span>
+        </div>
+    
+    </div>
+    <script type="module" src="./modules/script.js"></script>
+</body>
+</html> 
